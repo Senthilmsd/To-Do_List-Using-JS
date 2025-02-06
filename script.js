@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("darkMode") === "enabled") {
         body.classList.add("dark");
         body.classList.replace("bg-white", "bg-gray-900");
-        body.classList.replace("text-gray-900", "text-white");
+        // body.classList.replace("text-gray-900", "text-white");
     }
 
     toggleModeBtn.addEventListener("click", () => {
@@ -76,11 +76,14 @@ document.addEventListener("DOMContentLoaded", () => {
             body.classList.replace("bg-gray-900", "bg-white");
             body.classList.replace("text-white", "text-gray-900");
             localStorage.setItem("darkMode", "disabled");
+            loadTasks();
         } else {
             // Dark Mode
             body.classList.add("dark");
             body.classList.replace("bg-white", "bg-gray-900");
             localStorage.setItem("darkMode", "enabled");
+            loadTasks();
         }
     });
+    loadTasks();
 });
